@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body,.all{
+    width: 100%;
+    height: 100%;
+}
+.all{
+    display: grid;
+    place-items: center;
+}
+.player{
+    min-width: 320px;
+    border: 5px solid black;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+.upper{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    border:2px solid #000;
+    box-shadow: 0 0 0 15px #bbda554f;
+    outline: 2px solid #000;
+    outline-offset: 15px;
+    border-radius: 2px;
+    margin-top:25px;
+    gap: 0;
+}
+.upper img {
+    width: 15rem;
+    height:15rem;
+}
+.upper .icons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(0, 14, 88);
+    color: #fff;
+    font-size:1.5rem;
+}
+.icons > div{
+    display: flex;
+    flex-direction: column;   
+}
+.icons > div ion-icon{
+    padding: 10px;
+    cursor: pointer;
+}
+.icons > div ion-icon:hover{
+    box-shadow: 0px 0px 1px 1px #fff;   
+}
+.icons-left{
+    border-right: 1px solid rgba(255, 255, 255, 0.438);
+}
+.icons-right{
+    border-left: 1px solid rgba(255, 255, 255, 0.438);
+}
+.icons-center{
+    flex: 2;
+    display: flex;
+    flex-direction: row !important;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+}
+.icons-center div{
+    height: 80%;
+    width: 5px;
+    border-radius: 2px;
+    background: #fff;
+}
+.play-bar{
+    display: flex;
+    width: 60%;
+    gap: 15px;
+    justify-content: space-between;
+    font-size: 2rem;  
+    padding: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.438);
+    border-radius: 20px;
+    margin-bottom: -15px;
+}
+.play-bar-center{
+  
+    flex: 30%;
+    border-radius: 15px;
+    background: #fff;
+    border: 3px solid rgba(0, 0, 0, 0.438);
+    outline: 3px solid rgba(0, 0, 0, 0.438);
+    outline-offset: 15px;
+    box-shadow: 0 0 0 16px #fff;
+}
