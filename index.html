@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 </head>
 <body>
     <div class="all">
@@ -17,26 +18,26 @@
                         <ion-icon name="menu"></ion-icon>
                     </div>
                     <div class="icons-center">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
+                        <div class="stroke playin"></div>
                     </div>
                     <div class="icons-right">
-                        <ion-icon name="flash"></ion-icon>
+                        <ion-icon name="heart"></ion-icon>
                         <ion-icon name="search"></ion-icon>
                     </div>
                 </div>
             </div>
             <div class="play-bar">
-                <ion-icon name="play-circle"></ion-icon>
+                <ion-icon name="play-circle" onclick="play()"></ion-icon>
                 <div class="play-bar-center">
 
                 </div>
-                <ion-icon name="hand"></ion-icon>
+                <ion-icon name="hand-right"></ion-icon>
             </div>
             <div class="back-label">
                 <b></b>
@@ -44,6 +45,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>    
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -90,6 +90,12 @@ html,body,.all{
     border-radius: 20px;
     margin-bottom: -15px;
 }
+.play-bar ion-icon{
+    cursor: pointer;
+}
+.play-bar ion-icon:hover{
+    color: rgb(0, 14, 88);
+}
 .play-bar-center{
   
     flex: 30%;
@@ -99,4 +105,37 @@ html,body,.all{
     outline: 3px solid rgba(0, 0, 0, 0.438);
     outline-offset: 15px;
     box-shadow: 0 0 0 16px #fff;
+}
+@keyframes animate{
+    50%{
+        height: 20%;
+        background: #4286f4;
+    }
+    100%{
+        height: 100%;
+    }
+}
+.stroke{
+    animation: animate 1.4s linear infinite;
+}
+.stroke:nth-child(1){
+    animation-delay: 0s;
+}
+.stroke:nth-child(2){
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(3){
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(4){
+    animation-delay: 0.9s;
+}
+.stroke:nth-child(5){
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(6){
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(7){
+    animation-delay: 0s;
 }
