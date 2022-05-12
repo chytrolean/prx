@@ -5,35 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
 <body>
-    <div class="all">
+    <div class="all" id="app"> 
         <div class="player">
             <div class="upper">
                 <img src="music.jpg" alt="song background">
                 <div class="icons">
                     <div class="icons-left">
                         <ion-icon name="home"></ion-icon>
-                        <ion-icon name="menu"></ion-icon>
-                    </div>
+                        <ion-icon name="grid" class="menu"></ion-icon>                   </div>
                     <div class="icons-center">
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
-                        <div class="stroke playin"></div>
+                        <div class="song-name" v-if="stop">{{song}}</div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="playin" :class="{stroke : !stop}"></div>
                     </div>
                     <div class="icons-right">
-                        <ion-icon name="heart"></ion-icon>
+                        <ion-icon name="heart" class="heart"></ion-icon>
                         <ion-icon name="search"></ion-icon>
                     </div>
                 </div>
             </div>
             <div class="play-bar">
-                <ion-icon name="play-circle" onclick="play()"></ion-icon>
+                <ion-icon name="play-circle" @click="play"></ion-icon>
                 <div class="play-bar-center">
 
                 </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-
+    <script src="app.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>    
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
