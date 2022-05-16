@@ -3,16 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html,body,.all{
     width: 100%;
     height: 100%;
+    background: conic-gradient(rgb(255, 61, 103) 20%,rgba(52,163,253,1) 40%,rgb(203, 64, 171) 60%,rgba(92,58,254) 80%,rgb(255, 61, 103) 100%);
 }
+
+
 .all{
     display: grid;
     place-items: center;
+
 }
 .player{
     min-width: 320px;
+    max-width: 350px;
     border: 5px solid black;
     border-radius: 15px;
     position: relative;
@@ -21,30 +27,35 @@ html,body,.all{
     justify-content: space-between;
     align-items: center;
     gap: 25px;
+    background: rgba(255, 255, 255, 0.455);
+    backdrop-filter: blur(5rem);
+    padding: 10px;
+    -webkit-filter: drop-shadow(15px 15px 5px rgb(255, 255, 255));
 }
 .upper{
     height: 60%;
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: stretch;
     border:2px solid #000;
-    box-shadow: 0 0 0 15px #bbda554f;
+    box-shadow: 0 0 0 5px #bbda554f;
     outline: 2px solid #000;
-    outline-offset: 15px;
+    outline-offset: 5px;
     border-radius: 2px;
     margin-top:25px;
     gap: 0;
 }
 .upper img {
-    width: 15rem;
+    width: 100%;
     height:15rem;
 }
 .upper .icons{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background: rgb(1, 10, 56);
+    background: linear-gradient(to right,rgba(92,58,254) 20%,rgb(255, 61, 103),rgba(52,163,253,1) 80%);
     color: rgba(255, 255, 255, 0.63);
     font-size:1.5rem;
 }
@@ -55,15 +66,19 @@ html,body,.all{
 .icons > div ion-icon{
     padding: 10px;
     cursor: pointer;
+    filter: blur(.5px);
 }
 .icons > div ion-icon:hover{
     fill: #fff; 
+    filter: none;
 }
 .icons-left{
     border-right: 1px solid rgba(255, 255, 255, 0.438);
+    background: linear-gradient(to right,rgb(17,7,27),rgba(92,58,254)) ;
 }
 .icons-right{
     border-left: 1px solid rgba(255, 255, 255, 0.438);
+    background: linear-gradient(to left,rgb(17,7,27),rgba(52,163,253,1));
 }
 .heart:hover{
     fill: red !important;
@@ -72,22 +87,48 @@ html,body,.all{
     fill: rgb(0, 204, 255) !important;
 }
 .icons-center{
-    flex: 2;
+    width: 100%;
     display: flex;
     flex-direction: row !important;
     gap: 7px;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    text-overflow: clip; 
 }
 
+.song-names{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.song-name{
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    animation: floatText 10s infinite linear;
+    padding-left: 100%; /*Initial offset*/
+}
+.author-name{
+    font-size: .75rem;
+}
+.song-name:hover {
+    animation-play-state: paused;
+  }
+  @keyframes floatText {
+    to {
+      transform: translateX(-250%);
+    }
+  }
 .play-bar{
     display: flex;
     width: 60%;
-    gap: 15px;
+    gap: 25px;
     justify-content: space-between;
     font-size: 2rem;  
     padding: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.438);
+    border: 3px solid rgba(0, 0, 0, 0.7);
     border-radius: 20px;
     margin-bottom: -15px;
 }
@@ -98,14 +139,14 @@ html,body,.all{
     color: #7a00cc;
 }
 .play-bar-center{
-  
     flex: 30%;
     border-radius: 15px;
-    background: #fff;
-    border: 3px solid rgba(0, 0, 0, 0.438);
-    outline: 3px solid rgba(0, 0, 0, 0.438);
+    background: rgba(255, 255, 255, 0.455);
+    border: 3px solid rgba(0, 0, 0, 0.7);
+    outline: 3px solid rgba(0, 0, 0, 0.7);
     outline-offset: 15px;
-    box-shadow: 0 0 0 16px #fff;
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0.455);
+    backdrop-filter: blur(5rem);
 }
 @keyframes animate{
     50%{
@@ -115,6 +156,14 @@ html,body,.all{
     100%{
         height: 80%;
     }
+}
+.strokes{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 .stroke{
     height: 100%;
@@ -143,4 +192,8 @@ html,body,.all{
 }
 .stroke:nth-child(7){
     animation-delay: 0s;
+}
+li{
+    cursor: pointer;
+    list-style: none;
 }

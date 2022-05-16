@@ -9,26 +9,38 @@
 </head>
 <body>
     <div class="all" id="app"> 
-        <div class="player">
+        <div class="list" v-if="list">
+            <input type="text" id="search" ref="inp" v-model="search">
+            <ul>
+                <li v-for="song in filtered" @click="listed(); play(song)">{{song.name}}</li>
+            </ul>
+        </div>
+        <div class="player" v-else>
             <div class="upper">
                 <img src="music.jpg" alt="song background">
                 <div class="icons">
                     <div class="icons-left">
                         <ion-icon name="home"></ion-icon>
-                        <ion-icon name="grid" class="menu"></ion-icon>                   </div>
+                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>                 
+                    </div>
                     <div class="icons-center">
-                        <div class="song-name" v-if="stop">{{song}}</div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
-                        <div class="playin" :class="{stroke : !stop}"></div>
+                        <div class="song-names" v-if="stop">
+                            <div class="song-name" >{{current.name}}</div>
+                            <div class="author-name">{{current.author}}</div>
+                        </div>
+                        <div class="strokes" v-else>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                        </div>
                     </div>
                     <div class="icons-right">
                         <ion-icon name="heart" class="heart"></ion-icon>
-                        <ion-icon name="search"></ion-icon>
+                        <ion-icon name="search" @click="seek()"></ion-icon>
                     </div>
                 </div>
             </div>
@@ -37,7 +49,7 @@
                 <div class="play-bar-center">
 
                 </div>
-                <ion-icon name="hand-right"></ion-icon>
+                <ion-icon name="hand-right" @click="stoped"></ion-icon>
             </div>
             <div class="back-label">
                 <b></b>
