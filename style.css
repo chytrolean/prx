@@ -16,6 +16,67 @@ html,body,.all{
     place-items: center;
 
 }
+.list{
+    min-width: 320px;
+    max-width: 350px;
+    height: 30rem;
+    border: 5px solid black;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.455);
+    backdrop-filter: blur(5rem);
+    padding: 10px;
+    -webkit-filter: drop-shadow(15px 15px 5px rgba(255, 255, 255, 0.466));
+}
+.list input{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    background:rgba(255, 255, 255, 0.4);
+    transition: .3s;
+}
+.list input:focus{
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.281);
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 5px;
+    width: 100%;
+    max-height: 80%;
+    overflow: auto;
+}
+ul::-webkit-scrollbar {
+    width: 4px;
+}
+ul::-webkit-scrollbar-thumb{
+    background: #000;
+}
+ul::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgba(255, 61, 103, 0.6),rgba(52,163,253,.6),rgba(203, 64, 171,.6),rgba(92,58,254,.6),rgba(255, 61, 103,.6));
+}
+li{
+    padding: 0 15px 0 0;
+    background: rgba(255, 255, 255, 0.521);
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+li:hover{
+    box-shadow: 0 0 3px 3px rgba(53, 0, 88, 0.301);
+}
+.song-img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
 .player{
     min-width: 320px;
     max-width: 350px;

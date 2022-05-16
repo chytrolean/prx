@@ -1,9 +1,4 @@
-/*let line = document.getElementsByClassName('playin')
-function play(){
-    for (let i = 0; i< line.length; i++){
-        line[i].classList.toggle('stroke')
-    }
-}*/
+
 const app = Vue.createApp({
     data(){
         return{
@@ -17,17 +12,20 @@ const app = Vue.createApp({
                 {
                     name: "Blessed",
                     author:"Viktor Sheen",
-                    src: 'Blessed.mp3'
+                    src: 'Blessed.mp3',
+                    img: 'music.jpg'
                 },
                 {
                     name: "Piko v nose",
                     author:"Steve Sniff",
-                    src: 'piko-v-nose.mp3'
+                    src: 'piko-v-nose.mp3',
+                    img:'music.jpg'
                 },
                 {
                     name: "Hannah Montana VIP",
                     author:"Calin",
-                    src: 'Hannah-Montana-VIP.mp3'
+                    src: 'Hannah-Montana-VIP.mp3',
+                    img:'music.jpg'
                 },
             ],
             musicPlayer: new Audio()

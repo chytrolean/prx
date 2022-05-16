@@ -10,9 +10,9 @@
 <body>
     <div class="all" id="app"> 
         <div class="list" v-if="list">
-            <input type="text" id="search" ref="inp" v-model="search">
+            <input type="text" id="search" ref="inp" v-model="search" placeholder="Search...">
             <ul>
-                <li v-for="song in filtered" @click="listed(); play(song)">{{song.name}}</li>
+                <li v-for="song in filtered" @click="listed(); play(song)"><img :src="song.img" class="song-img">{{song.name}}</li>
             </ul>
         </div>
         <div class="player" v-else>
