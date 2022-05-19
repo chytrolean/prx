@@ -106,6 +106,25 @@ const app = Vue.createApp({
         }
     },
     methods:{
+        favPlay(song) {
+            if(typeof song.src != 'undefined'){
+                this.current = song
+                this.musicPlayer.src = this.favorite.src
+            }
+            this.stop = false
+            this.musicPlayer.play()
+            this.isPlaying = true
+        },
+        favAdd(){
+            this.favorite.push(this.current)
+            alert(this.current.name + ' was Added!')
+        },
+      
+        favoSwap(){
+            this.fav = !this.fav
+            if(this.fav) console.log('kokot')
+            else console.log('kripl')
+        },
         play(song){
             if(typeof song.src != 'undefined'){
                 this.current = song
@@ -129,24 +148,7 @@ const app = Vue.createApp({
             this.list = !this.list
             this.$nextTick(() => this.$refs.inp.focus())  
         },
-        favAdd(){
-            this.favorite.push(this.current)
-            alert(this.current.name + ' was Added!')
-        },
-        favPlay(song) {
-            if(typeof song.src != 'undefined'){
-                this.current = song
-                this.musicPlayer.src = this.favorite.src
-            }
-           
-            this.musicPlayer.play()
-            this.isPlaying = true
-        },
-        favoSwap(){
-            this.fav = !this.fav
-            if(this.fav) console.log('kokot')
-            else console.log('kripl')
-        }
+        
     },
     created(){
         this.current = this.songs[this.index]

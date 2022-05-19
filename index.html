@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,34 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
+
 <body>
-    <div class="all" id="app"> 
+    <div class="all" id="app">
         <div class="list" v-if="list">
             <input type="text" id="search" ref="inp" v-model="search" placeholder="Search...">
             <ul v-if="!fav">
-                <li v-for="song in filtered" @click="listed(); play(song)"><img :src="song.img" class="song-img">{{song.name}}</li>
+                <li v-for="song in filtered" @click="listed(); play(song)"><img :src="song.img"
+                        class="song-img">{{song.name}}</li>
             </ul>
             <ul v-else>
-                <li v-for="favSong in favoFilter" @click="listed(); favPlay(song)"><img :src="favSong.img" class="song-img">{{favSong.name}}</li>
+                <li v-for="favSong in favoFilter" @click="listed(); favPlay(song)"><img :src="favSong.img"
+                        class="song-img">{{favSong.name}}</li>
             </ul>
             <ion-icon name="heart" class="favo" @click="favoSwap"></ion-icon>
         </div>
-        <div class="player" v-else>
+        <div class="player" v-else v-if="!fav">
             <div class="upper">
                 <img src="music.jpg" alt="song background">
                 <div class="icons">
                     <div class="icons-left">
-                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank"><ion-icon name="home" class="home"></ion-icon></a>
-                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>                 
+                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank">
+                            <ion-icon name="home" class="home"></ion-icon>
+                        </a>
+                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>
                     </div>
                     <div class="icons-center">
                         <div class="song-names" v-if="stop">
-                            <div class="song-name" >{{current.name}}</div>
+                            <div class="song-name">{{current.name}}</div>
                             <div class="author-name">{{current.author}}</div>
                         </div>
                         <div class="strokes" v-else>
@@ -56,17 +62,19 @@
                 <ion-icon name="hand-right" @click="stoped"></ion-icon>
             </div>
         </div>
-        <div class="player" v-if="fav">
+        <div class="player" v-if="fav && !list">
             <div class="upper">
                 <img src="music.jpg" alt="song background">
                 <div class="icons">
                     <div class="icons-left">
-                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank"><ion-icon name="home" class="home"></ion-icon></a>
-                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>                 
+                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank">
+                            <ion-icon name="home" class="home"></ion-icon>
+                        </a>
+                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>
                     </div>
                     <div class="icons-center">
                         <div class="song-names" v-if="stop">
-                            <div class="song-name" >{{current.name}}</div>
+                            <div class="song-name">{{current.name}}</div>
                             <div class="author-name">{{current.author}}</div>
                         </div>
                         <div class="strokes" v-else>
@@ -86,7 +94,7 @@
                 </div>
             </div>
             <div class="play-bar">
-                <ion-icon name="play-circle" @click="play"></ion-icon>
+                <ion-icon name="play-circle" @click="favPlay"></ion-icon>
                 <div class="play-bar-center">
 
                 </div>
@@ -95,7 +103,8 @@
         </div>
     </div>
     <script src="app.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
