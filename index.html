@@ -11,16 +11,20 @@
     <div class="all" id="app"> 
         <div class="list" v-if="list">
             <input type="text" id="search" ref="inp" v-model="search" placeholder="Search...">
-            <ul>
+            <ul v-if="!fav">
                 <li v-for="song in filtered" @click="listed(); play(song)"><img :src="song.img" class="song-img">{{song.name}}</li>
             </ul>
+            <ul v-else>
+                <li v-for="favSong in favoFilter" @click="listed(); favPlay(song)"><img :src="favSong.img" class="song-img">{{favSong.name}}</li>
+            </ul>
+            <ion-icon name="heart" class="favo" @click="favoSwap"></ion-icon>
         </div>
         <div class="player" v-else>
             <div class="upper">
                 <img src="music.jpg" alt="song background">
                 <div class="icons">
                     <div class="icons-left">
-                        <ion-icon name="home"></ion-icon>
+                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank"><ion-icon name="home" class="home"></ion-icon></a>
                         <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>                 
                     </div>
                     <div class="icons-center">
@@ -39,7 +43,7 @@
                         </div>
                     </div>
                     <div class="icons-right">
-                        <ion-icon name="heart" class="heart"></ion-icon>
+                        <ion-icon name="heart" class="heart" @click="favAdd"></ion-icon>
                         <ion-icon name="search" @click="seek()"></ion-icon>
                     </div>
                 </div>
@@ -51,8 +55,42 @@
                 </div>
                 <ion-icon name="hand-right" @click="stoped"></ion-icon>
             </div>
-            <div class="back-label">
-                <b></b>
+        </div>
+        <div class="player" v-if="fav">
+            <div class="upper">
+                <img src="music.jpg" alt="song background">
+                <div class="icons">
+                    <div class="icons-left">
+                        <a href="https://www.youtube.com/watch?v=HIcSWuKMwOw" target="blank"><ion-icon name="home" class="home"></ion-icon></a>
+                        <ion-icon name="grid" class="menu" @click="listed(); stoped()"></ion-icon>                 
+                    </div>
+                    <div class="icons-center">
+                        <div class="song-names" v-if="stop">
+                            <div class="song-name" >{{current.name}}</div>
+                            <div class="author-name">{{current.author}}</div>
+                        </div>
+                        <div class="strokes" v-else>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                            <div class="playin" :class="{stroke : !stop}"></div>
+                        </div>
+                    </div>
+                    <div class="icons-right">
+                        <ion-icon name="heart" class="heart" @click="favAdd"></ion-icon>
+                        <ion-icon name="search" @click="seek()"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="play-bar">
+                <ion-icon name="play-circle" @click="play"></ion-icon>
+                <div class="play-bar-center">
+
+                </div>
+                <ion-icon name="hand-right" @click="stoped"></ion-icon>
             </div>
         </div>
     </div>
